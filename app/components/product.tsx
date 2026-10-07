@@ -1,5 +1,7 @@
 
 import Image from "next/image";
+import Link from "next/link";
+import AddToCartButton from "./addTocartButton";
 
 type Product = {
   id: number;
@@ -9,7 +11,9 @@ type Product = {
 };
 export default function ProductCard({ product }: { product: Product }) {
   return (
-    <div className="border rounded-[10px] p-4">
+
+    <Link href={`/product-details/${product.id}`} >
+    <div className="border rounded-[10px] p-4 hover:border-blue-400 hover:border-[3px]">
       <Image
         src={product.image}
         alt={product.title}
@@ -20,8 +24,10 @@ export default function ProductCard({ product }: { product: Product }) {
       <h2 className="mt-2 font-semibold">{product.title}</h2>
       <p>${product.price}</p>
 
-      <button className="px-4 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition hover:bg-blue-700 cursor-pointer"
->Add to Cart</button>
+      <AddToCartButton />
+
+   
     </div>
+    </Link>
   );
 }

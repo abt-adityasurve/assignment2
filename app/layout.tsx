@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import Search from "./components/search";
 // import { useState } from "react";
 
 const geistSans = Geist({
@@ -50,33 +51,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             </div>
           </div>
 
-          <div className="relative w-80">
-            <input
-              type="text"
-              placeholder="Search for products..."
-              className="w-full rounded-lg border border-gray-500 bg-transparent px-4 py-2 pr-10 text-sm text-white focus:border-gray-400 focus:outline-none"
-              // value={serched}
-              // onChange={(e) => setSerched(e.target.value)}
 
-            />
-            <div className="absolute right-0 top-0 flex h-full items-center pr-3">
-             <button >
-                <svg
-                  aria-hidden="true"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-4 w-4 text-gray-500"
-                >
-                  <circle cx="11" cy="11" r="8" />
-                  <path d="m21 21-4.3-4.3" />
-                </svg>
-              </button>
-            </div>
-          </div>
+           < Search />
+         
+          
 
           <Link
             href="/cart"
@@ -107,7 +85,50 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         
         
         
-        {children}</body>
+        {children}
+        
+        
+
+
+        <footer className="flex gap-4 ">
+
+
+          <Link href="/" className="flex items-center gap-2 font-bold text-white ml-[30px] mt-[30px]">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-gray-200 bg-gray-100 p-2">
+                <svg viewBox="0 0 24 24" fill="black" className="h-4 w-4">
+                  <path d="M3.5 18.5 11.1 5.2a1 1 0 0 1 1.8 0l2.2 3.9-5.4 9.4H3.5Z" />
+                  <path d="m13.9 12.4 3.5 6.1h-7l3.5-6.1Z" />
+                </svg>
+              </div>
+              <span className="text-sm uppercase tracking-widest">ACME STORE</span>
+            </Link>
+
+
+<div className="pt-[40px] ml-[20px] :hover-text-grey-400 cursor-pointer">
+            <Link href={'#'}> <p>Shipping</p></Link>
+            <Link href={'#'}><p>Returns</p></Link>
+</div>
+
+
+
+
+<div className="mt-[40px] h8 ml-auto mr-[20px]  ">
+<svg 
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+  className="h-6 w-6"
+  fill="currentColor"
+>
+  <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.01-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.71 1.25 3.37.96.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.41.36.78 1.08.78 2.18 0 1.57-.01 2.84-.01 3.22 0 .31.21.68.8.56A10.99 10.99 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z" />
+</svg>
+</div>
+
+
+        </footer>
+        
+        
+        
+        </body>
     </html>
   );
 }
